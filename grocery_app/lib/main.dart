@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/helper/iconhelper.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,55 +13,59 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SplashPage(duration: 3, goToPage: WelcomePage()),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class IconFont extends StatelessWidget {
+  Color color;
+  double size;
+  String iconName;
 
-
-  final String title;
-
+  IconFont({required this.color, required this.size, required this.iconName});
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  Widget build(BuildContext context) {
+    return Text(
+      iconName,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
+        fontFamily: 'orilla',
+      ),
+    );
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class SplashPage extends StatelessWidget {
+  int duration;
+  Widget goToPage;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  SplashPage({required this.duration, required this.goToPage});
+
+  @override
+  Widget build(BuildContext context) {
+
+    Future.delayed(Duration(seconds: this.duration), (){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => goToPage));
     });
+
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        color: Color(0XFF80C038),
+        child: IconFont(color: Colors.white, size: 100, iconName: IconFontHelper.LOGO),
+      ),
+    );
   }
+}
+
+class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      body: Container(alignment: Alignment.center, child: Text('Hello World')),
     );
   }
 }

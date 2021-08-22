@@ -29,29 +29,75 @@ class CategoryListPage extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(right: 10),
             padding: EdgeInsets.all(10),
-            child: ClipOval(
-              child: Image.asset('assets/images/me.jpg')
-            ),
+            child: ClipOval(child: Image.asset('assets/images/me.jpg')),
           )
         ],
       ),
       body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Stack(
           children: [
-            Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 10),
-                child: Text(
-                  'Select a Category',
-                  textAlign: TextAlign.center,
-                  style: categoryTitleStyle(),
-                )),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: category.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CategoryCard(category: category[index]);
-                    })),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Text(
+                      'Select a Category',
+                      textAlign: TextAlign.center,
+                      style: categoryTitleStyle(),
+                    )),
+                Expanded(
+                    child: ListView.builder(
+                        itemCount: category.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return CategoryCard(category: category[index]);
+                        })),
+              ],
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 100,
+                padding: EdgeInsets.only(bottom: 20),
+                decoration:
+                    BoxDecoration(color: AppColors.WHITE_COLOR, boxShadow: [
+                  BoxShadow(
+                      blurRadius: 20,
+                      color: AppColors.BLACK_COLOR.withOpacity(0.2),
+                      offset: Offset.zero)
+                ]),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ClipOval(
+                          child: Material(
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.favorite,
+                                      color: AppColors.MAIN_COLOR)))),
+                      ClipOval(
+                          child: Material(
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.shopping_cart,
+                                      color: AppColors.MAIN_COLOR)))),
+                      ClipOval(
+                          child: Material(
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.pin_drop,
+                                      color: AppColors.MAIN_COLOR)))),
+                      ClipOval(
+                          child: Material(
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.settings,
+                                      color: AppColors.MAIN_COLOR)))),
+                    ]),
+              ),
+            ),
           ],
         ),
       ),

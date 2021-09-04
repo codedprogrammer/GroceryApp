@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:orilla_fresca_app/screens/category_list_screen.dart';
 import 'package:orilla_fresca_app/screens/splash_screen.dart';
 import 'package:orilla_fresca_app/screens/welcome_screen.dart';
 
@@ -13,8 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Raleway'),
       debugShowCheckedModeBanner: false,
-      home: CategoryListPage(),
-      // SplashPage(duration: 4, goToPage: WelcomePage()),
+      home: SplashPage(duration: 4, goToPage: WelcomePage()),
     );
   }
 }

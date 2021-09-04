@@ -1,6 +1,7 @@
 import 'package:orilla_fresca_app/helper/appcolors.dart';
 import 'package:orilla_fresca_app/helper/iconhelper.dart';
 import 'package:orilla_fresca_app/models/category.dart';
+import 'package:orilla_fresca_app/models/subcategory.dart';
 
 class CategoryListAPI {
   static List<Category> getMockedCategories() {
@@ -10,7 +11,45 @@ class CategoryListAPI {
         icon: IconFontHelper.MEATS,
         imageName: 'cat1',
         name: 'Meats',
-        subCategories: [],
+        subCategories: [
+          SubCategory(
+            color: AppColors.MEATS,
+            name: 'Pork',
+            imageName: 'cat1_1',
+            icon: IconFontHelper.MEATS
+          ),
+          SubCategory(
+            color: AppColors.MEATS,
+            name: 'Hen',
+            imageName: 'cat1_2',
+            icon: IconFontHelper.MEATS
+          ),
+          SubCategory(
+            color: AppColors.MEATS,
+            name: 'Cow',
+            imageName: 'cat1_3',
+            icon: IconFontHelper.MEATS
+          ),
+          SubCategory(
+            color: AppColors.MEATS,
+            name: 'Turkey',
+            imageName: 'cat1_4',
+            icon: IconFontHelper.MEATS
+          ),
+          SubCategory(
+            color: AppColors.MEATS,
+            name: 'Goat',
+            imageName: 'cat1_5',
+            icon: IconFontHelper.MEATS
+          ),
+          SubCategory(
+            color: AppColors.MEATS,
+            name: 'Rabbit',
+            imageName: 'cat1_6',
+            icon: IconFontHelper.MEATS
+          ),
+
+        ],
       ),
       Category(
         color: AppColors.FRUITS,

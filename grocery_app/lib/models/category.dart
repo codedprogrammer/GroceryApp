@@ -1,16 +1,18 @@
 import 'dart:ui';
 
+import 'package:orilla_fresca_app/models/subcategory.dart';
+
 class Category {
-  String name;
-  String icon;
-  Color color;
-  String imageName;
-  List<Category> subCategories;
+  String? name;
+  String? icon;
+  Color? color;
+  String? imageName;
+  List<SubCategory>? subCategories;
 
   Category(
-      {required this.name,
-      required this.icon,
-      required this.color,
-      required this.imageName,
-      required this.subCategories});
+      {this.name,
+      this.icon,
+      this.color,
+      this.imageName,
+      this.subCategories});
 }
